@@ -12,7 +12,12 @@ const UsingContext = () => {
   });
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <Parent />
+      <div className="border border-white m-5">
+        <p className="text-xs text-white text-center font-semibold py-4">
+          Using Context
+        </p>
+        <Parent />
+      </div>
     </UserContext.Provider>
   );
 };
