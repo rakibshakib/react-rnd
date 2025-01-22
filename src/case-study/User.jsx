@@ -12,23 +12,22 @@ const User = () => {
   }, [users, isSuccess]);
 
   // handler fun start
-  const onCheckHandler =
-    ({ index, id }) =>
-    (event) => {
+  const onCheckHandler = ({ index, id }) => (event) => {
       const isChecked = event.target.checked;
       // Approach #1: Update `data` directly (mutating original data)
-      setData((prevData) => {
-        const updatedData = [...prevData];
-        updatedData[index] = { ...updatedData[index], isChecked };
-        return updatedData;
-      });
+      // setData((prevData) => {
+      //   const updatedData = [...prevData];
+      //   updatedData[index] = { ...updatedData[index], isChecked };
+      //   // updatedData[index].isChecked = isChecked
+      //   return updatedData;
+      // });
 
       // Approach #2: Manage selection state with an array
-      setUserIdList((prevList) =>
-        isChecked
-          ? [...prevList, { id }]
-          : prevList.filter((user) => user._id !== id)
-      );
+      // setUserIdList((prevList) =>
+      //   isChecked
+      //     ? [...prevList, { id }]
+      //     : prevList.filter((user) => user._id !== id)
+      // );
 
       // Approach #3: Use a Set for constant-time operations
       setUserIdSet((prevSet) => {
@@ -38,6 +37,9 @@ const User = () => {
       });
     };
   // handler fun end
+
+
+  console.log({data})
 
   if (!isFetched)
     return <div className="text-center font-bold py-6">Loading...</div>;
@@ -56,9 +58,9 @@ const User = () => {
                 name={user.name}
                 id={user.name}
                 value={user?.isChecked}
-                checked={user.isChecked} // Approach #1: ⚠ Error: 'isChecked' not in Uerr type
+                // checked={user.isChecked} // Approach #1: ⚠ Error: 'isChecked' not in Uerr type
                 // checked={userIdList.some((item) => item.id === user._id)} // Approach #2
-                // checked={userIdSet.has(user._id)} // Approach #3
+                checked={userIdSet.has(user._id)} // Approach #3 o(1)
                 onChange={onCheckHandler({ index, id: user._id })}
               />
             </label>
