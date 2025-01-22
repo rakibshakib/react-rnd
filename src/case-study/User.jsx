@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useGetUserList } from "./useGetUser";
 
 const User = () => {
-  const { data: users, isFetched, refetch, isSuccess } = useGetUserList();
+  const { data: users, isFetched, isSuccess } = useGetUserList();
   const [data, setData] = useState([]);
   const [userIdSet, setUserIdSet] = useState(new Set());
   const [userIdList, setUserIdList] = useState([]);
-  console.log({ data });
 
   useEffect(() => {
     isSuccess && setData(users);
