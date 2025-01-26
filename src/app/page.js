@@ -1,5 +1,3 @@
-import CaseStudy from "@/case-study";
-import UsingContext from "@/context-case";
 import UsingTSQuery from "@/ts-query";
 
 export default function Home() {
@@ -11,8 +9,8 @@ export default function Home() {
         {/* <UsingContext />
         <UsingTSQuery /> */}
 
-        <UsingContext />
-        <CaseStudy />
+        {/* <UsingContext />
+        <CaseStudy /> */}
         <UsingTSQuery /> 
       </div>
     </div>
