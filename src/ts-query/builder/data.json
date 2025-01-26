@@ -1,0 +1,22 @@
+{
+    "type": "div",
+    "props": {
+      "style": { "backgroundColor": "#f5f5f5", "padding": "10px" },
+      "children": [
+        {
+          "type": "h1",
+          "props": {
+            "style": { "color": "#333" },
+            "children": "Welcome!"
+          }
+        },
+        {
+          "type": "p",
+          "props": {
+            "children": "This is a dynamically rendered UI."
+          }
+        }
+      ]
+    }
+  }
+  
